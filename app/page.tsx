@@ -592,9 +592,8 @@ export default function HomeSection1() {
               variants={impactFadeUp}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
-              className="relative overflow-hidden rounded-[18px] bg-[#A13A28] px-5 py-12 shadow-[0_18px_50px_rgba(26,10,7,0.14)] sm:px-8 sm:py-16 lg:px-12 lg:py-20"
+              className="relative overflow-hidden rounded-[18px] bg-[#A13A28] px-5 py-12 shadow-[0_18px_50px_rgba(26,10,7,0.14)] sm:px-8 sm:py-14 lg:px-12 lg:py-16"
             >
-              {/* GROWTH watermark */}
               <motion.div
                 variants={impactFadeUp}
                 className="pointer-events-none absolute inset-0 flex items-center justify-center select-none"
@@ -605,17 +604,17 @@ export default function HomeSection1() {
                 </span>
               </motion.div>
 
-              <div className="relative z-10 mx-auto flex max-w-[820px] flex-col items-center text-center">
+              <div className="relative z-10 mx-auto flex max-w-[820px] flex-col items-center text-center gap-3">
                 <motion.h3
                   variants={impactFadeUp}
-                  className="max-w-[14ch] text-[clamp(2.2rem,5.6vw,3.8rem)] font-extrabold leading-[1.0] tracking-[-0.03em] text-white"
+                  className="max-w-[34ch] text-[clamp(2.2rem,5.6vw,3.8rem)] font-extrabold leading-[1.0] tracking-[-0.03em] text-white"
                 >
                   Ready to Professionalize Your Digital Care Presence?
                 </motion.h3>
 
                 <motion.p
                   variants={impactFadeUp}
-                  className="mt-4 max-w-[40ch] text-[0.95rem] leading-[1.55] text-white/80 sm:mt-5 sm:text-[1rem]"
+                  className="max-w-[80ch] text-[0.95rem] leading-[1.5] text-white/80 sm:text-[1rem]"
                 >
                   Book a strategy session with our care-focused digital experts today.
                 </motion.p>
@@ -626,7 +625,7 @@ export default function HomeSection1() {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.2 }}
-                  className="mt-7 inline-flex h-[52px] items-center justify-center rounded-full bg-white px-10 text-[0.85rem] font-bold tracking-[0.01em] text-[#A13A28] shadow-[0_10px_24px_rgba(0,0,0,0.15)] sm:mt-8 sm:px-12"
+                  className="mt-2 inline-flex h-[52px] items-center justify-center rounded-full bg-white px-10 text-[0.85rem] font-bold tracking-[0.01em] text-[#A13A28] shadow-[0_10px_24px_rgba(0,0,0,0.15)] sm:px-12"
                 >
                   Arrange a Consultation
                 </motion.a>
