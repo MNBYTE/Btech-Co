@@ -213,10 +213,11 @@ export default function HomeSection1() {
             >
               <div className="relative mx-auto w-[92%] sm:w-[86%] lg:w-[80%]">
                 <motion.div
-                  initial={{ opacity: 0, y: 16, rotate: -1.5 }}
-                  animate={{ opacity: 1, y: 0, rotate: 0 }}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
                   className="relative aspect-[4/5] overflow-hidden rounded-[18px] shadow-[0_18px_40px_rgba(31,17,16,0.12)]"
+                  style={{ rotate: "3deg" }}
                 >
                   <Image
                     src="/imgs/homehero.jpg"
@@ -233,6 +234,7 @@ export default function HomeSection1() {
                 animate={{ opacity: 1, y: 0, x: 0 }}
                 transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
                 className="absolute bottom-[-10px] left-0 z-10 w-[45%] min-w-[145px] max-w-[190px] rounded-[14px] bg-white px-4 py-4 shadow-[0_14px_30px_rgba(31,17,16,0.12)] sm:bottom-[-14px] sm:left-[-8px] sm:px-5 sm:py-5"
+                style={{ rotate: "-2deg" }}
               >
                 <motion.div
                   initial={{ scale: 0.95, opacity: 0 }}
@@ -247,6 +249,7 @@ export default function HomeSection1() {
                 </p>
               </motion.div>
             </motion.div>
+
           </motion.div>
         </div>
       </section>
@@ -432,7 +435,7 @@ export default function HomeSection1() {
                 className="flex flex-col justify-center rounded-[22px] bg-[#EAD6C7] p-8 md:col-span-2"
               >
                 <h3 className="text-[22px] font-semibold text-[#1A0A07]">Data-Driven Growth</h3>
-                <p className="mt-3 max-w-[520px] text-[14px] leading-[1.6] text-[#4F4F4F]">
+                <p className="mt-3 max-w-[350px] text-[14px] leading-[1.6] text-[#4F4F4F]">
                   We don't just design; we measure. Constant iterations to improve occupancy rates and visibility.
                 </p>
               </motion.div>
@@ -591,12 +594,13 @@ export default function HomeSection1() {
               transition={{ duration: 0.2 }}
               className="relative overflow-hidden rounded-[18px] bg-[#A13A28] px-5 py-12 shadow-[0_18px_50px_rgba(26,10,7,0.14)] sm:px-8 sm:py-16 lg:px-12 lg:py-20"
             >
+              {/* GROWTH watermark */}
               <motion.div
                 variants={impactFadeUp}
                 className="pointer-events-none absolute inset-0 flex items-center justify-center select-none"
                 aria-hidden="true"
               >
-                <span className="text-[clamp(4.5rem,14vw,9rem)] font-semibold leading-none tracking-[-0.08em] text-white/[0.08] sm:text-[clamp(6rem,13vw,10rem)]">
+                <span className="text-[clamp(5rem,16vw,10rem)] font-extrabold leading-none tracking-[-0.06em] text-white/[0.12]">
                   GROWTH
                 </span>
               </motion.div>
@@ -604,14 +608,14 @@ export default function HomeSection1() {
               <div className="relative z-10 mx-auto flex max-w-[820px] flex-col items-center text-center">
                 <motion.h3
                   variants={impactFadeUp}
-                  className="max-w-[12ch] text-[clamp(2rem,5.6vw,3.8rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:max-w-[13ch]"
+                  className="max-w-[14ch] text-[clamp(2.2rem,5.6vw,3.8rem)] font-extrabold leading-[1.0] tracking-[-0.03em] text-white"
                 >
                   Ready to Professionalize Your Digital Care Presence?
                 </motion.h3>
 
                 <motion.p
                   variants={impactFadeUp}
-                  className="mt-4 max-w-[34ch] text-[0.95rem] leading-[1.55] text-white/85 sm:mt-5 sm:max-w-[40ch] sm:text-[1rem]"
+                  className="mt-4 max-w-[40ch] text-[0.95rem] leading-[1.55] text-white/80 sm:mt-5 sm:text-[1rem]"
                 >
                   Book a strategy session with our care-focused digital experts today.
                 </motion.p>
@@ -622,7 +626,7 @@ export default function HomeSection1() {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.2 }}
-                  className="mt-6 inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-[0.82rem] font-semibold tracking-[0.02em] text-[#FF6347] shadow-[0_10px_24px_rgba(0,0,0,0.12)] sm:mt-7 sm:h-13 sm:px-10"
+                  className="mt-7 inline-flex h-[52px] items-center justify-center rounded-full bg-white px-10 text-[0.85rem] font-bold tracking-[0.01em] text-[#A13A28] shadow-[0_10px_24px_rgba(0,0,0,0.15)] sm:mt-8 sm:px-12"
                 >
                   Arrange a Consultation
                 </motion.a>

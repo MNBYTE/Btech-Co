@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const fadeUp = (delay = 0) => ({
@@ -100,7 +101,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="absolute bottom-4 md:bottom-6 right-4 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#FF6347] flex items-center justify-center text-white text-lg">
-            →
+            <ArrowUpRight size={20} />
           </div>
         </motion.div>
 
@@ -161,40 +162,53 @@ export default function PortfolioPage() {
 
       {/* FRAMEWORK */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 pb-20">
-
         <motion.div
           {...fadeUp()}
           className="relative h-[300px] sm:h-[360px] md:h-[440px] rounded-3xl overflow-hidden"
         >
-          <Image src="/imgs/portfolio4.png" alt="" fill className="object-cover" />
+          <Image
+            src="/imgs/portfolio4.png"
+            alt=""
+            fill
+            className="object-cover"
+          />
 
           <div className="absolute inset-0 flex items-center justify-center px-4">
             <div className="bg-white/85 backdrop-blur-2xl rounded-3xl px-5 md:px-12 py-6 md:py-10 max-w-3xl w-full shadow-2xl">
 
-              <h3 className="text-xl md:text-3xl font-bold text-[#1A0A07] mb-3 md:mb-4">
-                The Growth Engine Framework
-              </h3>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 md:gap-8">
 
-              <p className="text-[#4F4F4F] text-xs md:text-base max-w-lg">
-                Our proprietary 12-week scaling system for multi-site care operators looking to dominate local search.
-              </p>
-
-              <div className="flex gap-3 md:gap-4 mt-6 md:mt-8 flex-wrap">
-                <div className="bg-white rounded-xl px-4 py-3 md:px-5 md:py-4 shadow-md min-w-[120px]">
-                  <p className="text-[#A13A28] font-bold">5.2k</p>
-                  <p className="text-[10px] md:text-xs text-[#828282]">LEADS GENERATED</p>
+                {/* LEFT TEXT */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg sm:text-xl md:text-3xl font-bold text-[#1A0A07] mb-2 md:mb-3 leading-tight">
+                    The Growth Engine<br className="hidden sm:block" /> Framework
+                  </h3>
+                  <p className="text-[#4F4F4F] text-[11px] sm:text-xs md:text-sm leading-relaxed max-w-[280px] md:max-w-none">
+                    Our proprietary 12-week scaling system for multi-site care operators looking to dominate local search.
+                  </p>
                 </div>
 
-                <div className="bg-white rounded-xl px-4 py-3 md:px-5 md:py-4 shadow-md min-w-[120px]">
-                  <p className="text-[#A13A28] font-bold">£4.1M</p>
-                  <p className="text-[10px] md:text-xs text-[#828282]">REVENUE IMPACT</p>
+                {/* RIGHT STATS — always a single row */}
+                <div className="flex flex-row gap-3 flex-shrink-0">
+                  <div className="bg-white px-4 py-3 md:px-5 md:py-4 shadow-md text-center min-w-[100px] md:min-w-[120px]">
+                    <p className="text-[#A13A28] font-bold text-base md:text-lg">5.2k</p>
+                    <p className="text-[9px] md:text-[10px] text-[#828282] font-medium tracking-wide mt-0.5 whitespace-nowrap">
+                      LEADS GENERATED
+                    </p>
+                  </div>
+
+                  <div className="bg-white px-4 py-3 md:px-5 md:py-4 shadow-md text-center min-w-[100px] md:min-w-[120px]">
+                    <p className="text-[#A13A28] font-bold text-base md:text-lg">£4.1M</p>
+                    <p className="text-[9px] md:text-[10px] text-[#828282] font-medium tracking-wide mt-0.5 whitespace-nowrap">
+                      REVENUE IMPACT
+                    </p>
+                  </div>
                 </div>
+
               </div>
-
             </div>
           </div>
         </motion.div>
-
       </section>
 
     </main>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BarChart3 } from "lucide-react";
+import { BarChart3, Brush, MonitorSmartphone, SquareMousePointer } from "lucide-react";
 
 /* ─── animations ─── */
 const fadeUp = (delay = 0) => ({
@@ -52,83 +52,90 @@ export default function ServicesPage() {
             </div>
             </motion.div>
 
-            {/* IMAGE SYSTEM */}
-            <motion.div
-            {...fadeUp(0.2)}
-            className="relative h-[380px] md:h-[460px] w-full"
-            >
+        {/* IMAGE SYSTEM */}
+        <motion.div
+        {...fadeUp(0.2)}
+        className="relative h-[430px] md:h-[460px] w-[80%] md:w-[70%] mx-auto"
+        >
 
-            {/* 🔴 BACKGROUND CONTAINER CARD */}
-            <div className="absolute inset-0 bg-[#E85C35] rounded-[28px]" />
+        {/* 🔴 ORANGE BACKGROUND */}
+        <div className="absolute inset-0 bg-[#E85C35] rounded-[28px]" />
 
-            {/* ⚪ INNER WHITE UI CARD */}
-            <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="absolute left-6 right-16 top-10 bottom-6 bg-white rounded-[22px] overflow-hidden shadow-xl"
-            >
-                <Image
-                src="/imgs/service1.png"
-                alt="Care service showcase"
-                fill
-                className="object-cover"
-                />
-            </motion.div>
-
-            {/* 🟨 SMALL FLOATING CARD (BOTTOM LEFT) */}
-            <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+        {/* ⚪ WHITE CARD — left side, tilts CCW, z-10 */}
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="
-                absolute 
-                left-10 
-                bottom-6 
-                w-[38%] 
-                h-[32%] 
-                bg-white 
-                rounded-[18px] 
-                overflow-hidden 
-                shadow-2xl
-                z-20
+            absolute
+            left-4 right-[22%]
+            top-8 bottom-8
+            bg-white
+            rounded-[20px]
+            overflow-hidden
+            shadow-2xl
+            z-10
             "
-            >
+            style={{ rotate: "-5deg", transformOrigin: "bottom left" }}
+        >
             <Image
-                src="/imgs/service3.png"
-                alt="Additional showcase"
-                fill
-                className="object-cover"
+            src="/imgs/service2.png"
+            alt="Care service showcase"
+            fill
+            className="object-cover object-top"
             />
-            </motion.div>
+        </motion.div>
 
-            {/* ⚫ RIGHT DARK CARD (OVERLAP) */}
-            <motion.div
-                initial={{ opacity: 0, x: 60, rotate: 4 }}
-                animate={{ opacity: 1, x: 0, rotate: 4 }}
-                transition={{ duration: 0.8 }}
-                className="
-                absolute 
-                right-0 
-                top-4 
-                bottom-4 
-                w-[48%] 
-                bg-[#1A1A1A] 
-                rounded-[22px] 
-                overflow-hidden 
-                shadow-2xl
-                z-10
-                "
-            >
-                <Image
-                src="/imgs/service2.png"
-                alt="Care facility digital marketing"
-                fill
-                className="object-cover opacity-90"
-                />
-            </motion.div>
+        {/* ⚫ DARK CARD — right, overlaps white card, tilts CW, z-20 */}
+        <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            className="
+            absolute
+            right-8 left-[22%]
+            top-8 bottom-8
+            bg-[#1A1A1A]
+            rounded-[20px]
+            overflow-hidden
+            shadow-2xl
+            z-20
+            "
+            style={{ rotate: "5deg", transformOrigin: "bottom right" }}
+        >
+            <Image
+            src="/imgs/service1.png"
+            alt="Digital marketing showcase"
+            fill
+            className="object-cover object-top"
+            />
+        </motion.div>
 
-            </motion.div>
+        {/* 🟫 SMALL CARD — bottom left, in front of everything, z-30 */}
+        <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
+            className="
+            absolute
+            left-3 bottom-3
+            w-[34%] h-[38%]
+            bg-white
+            rounded-[16px]
+            overflow-hidden
+            shadow-2xl
+            z-30
+            "
+        >
+            <Image
+            src="/imgs/service3.png"
+            alt="Additional showcase"
+            fill
+            className="object-cover object-top"
+            />
+        </motion.div>
+
+        </motion.div>
         </div>
         </section>
 
@@ -164,10 +171,7 @@ export default function ServicesPage() {
                 "
                 >
                 <div className="text-[#FF6347] mb-5">
-                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                    <rect x="2" y="3" width="13" height="10" rx="1.5" />
-                    <rect x="17" y="7" width="5" height="8" rx="1.5" />
-                    </svg>
+                    <MonitorSmartphone size={34}/>
                 </div>
 
                 <h3 className="text-lg font-bold text-[#1A0A07] mb-3">
@@ -226,10 +230,7 @@ export default function ServicesPage() {
                 "
                 >
                 <div className="text-[#FF6347] mb-5">
-                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                    <circle cx="12" cy="12" r="3" />
-                    <path strokeLinecap="round" d="M12 2v2M12 20v2M2 12h2M20 12h2" />
-                    </svg>
+                    <SquareMousePointer size={34}/>
                 </div>
 
                 <h3 className="text-lg font-bold text-[#1A0A07] mb-3">
@@ -266,7 +267,7 @@ export default function ServicesPage() {
                 {...fadeUp(0.3)}
                 className="bg-white p-6 rounded-2xl flex flex-col"
             >
-                <div className="text-[#FF6347] text-xl mb-4">✎</div>
+                <div className="text-[#FF6347] text-xl mb-4"><Brush size={34} /></div>
 
                 <h3 className="font-semibold mb-2 text-[#1A0A07]">
                 Graphic Design
