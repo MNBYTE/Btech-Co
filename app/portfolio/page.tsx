@@ -26,7 +26,7 @@ export default function PortfolioPage() {
       <section className="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20 grid lg:grid-cols-2 gap-10 md:gap-12 items-start">
 
         {/* LEFT */}
-        <div>
+        <div className="w-[350px]">
           <motion.p {...fadeUp()} className="text-xs tracking-[0.2em] text-[#A13A28] mb-4 md:mb-6">
             OUR PORTFOLIO
           </motion.p>
@@ -35,9 +35,9 @@ export default function PortfolioPage() {
             {...fadeUp(0.1)}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#1A0A07]"
           >
-            Digital Marketing for the{" "}
-            <span className="text-[#FF6347]">UK Care Industry:</span>{" "}
-            A Portfolio of Success Stories.
+            Our Work {" "}
+            <span className="text-[#FF6347]">with Care </span>{" "}
+            Providers
           </motion.h1>
         </div>
 
@@ -59,8 +59,7 @@ export default function PortfolioPage() {
             </div>
 
             <p className="text-[#4F4F4F] text-xs md:text-sm leading-relaxed">
-              Strategic growth architecture for supported living providers who
-              prioritize excellence in human care.
+              Take a look at how we’ve helped care providers improve their online presence, attract enquiries, and present their services more clearly.
             </p>
 
             <div className="mt-4 md:mt-6 grid grid-cols-2 gap-3 md:gap-4">
@@ -129,15 +128,15 @@ export default function PortfolioPage() {
       {/* SMALL CARDS */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 pb-12 md:pb-14 grid md:grid-cols-3 gap-6">
 
-        {[2,3].map((n,i)=>(
-          <motion.div key={n} {...fadeUp(i*0.1)} className="relative h-[300px] sm:h-[360px] md:h-[400px] rounded-3xl overflow-hidden">
+        {[2, 3].map((n, i) => (
+          <motion.div key={n} {...fadeUp(i * 0.1)} className="relative h-[300px] sm:h-[360px] md:h-[400px] rounded-3xl overflow-hidden">
             <Image src={`/imgs/portfolio${n}.png`} alt="" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-5 md:p-6 flex flex-col justify-end text-white">
               <h4 className="font-semibold text-sm md:text-base">
-                {n===2 ? "Horizon Supported Care" : "St. Jude’s Specialty Care"}
+                {n === 2 ? "Horizon Supported Care" : "St. Jude’s Specialty Care"}
               </h4>
               <p className="text-xs md:text-sm text-[#FF6347] mt-1">
-                {n===2 ? "↓ -45% Cost Per Lead" : "↑ 89% Occupancy Growth"}
+                {n === 2 ? "↓ -45% Cost Per Lead" : "↑ 89% Occupancy Growth"}
               </p>
             </div>
           </motion.div>

@@ -11,7 +11,16 @@ import {
   Award,
   TrendingUp,
   BadgeCheck,
+  Globe,
+  Palette,
+  Zap,
+  Users,
+  MessageSquare,
+  Send,
+  Star,
+  Share2,
 } from "lucide-react";
+import { useState } from "react";
 
 /* shared variants */
 const container = {
@@ -67,31 +76,31 @@ const steps = [
     id: "01",
     title: "Consultation",
     description:
-      "Deep dive into your current challenges, occupancy goals, and the unique care culture of your facilities.",
+      "Understanding your service, occupancy goals, referral channels, and care environment.",
   },
   {
     id: "02",
     title: "Digital Audit",
     description:
-      "A rigorous technical assessment of your online footprint, local search performance, and competitive landscape.",
+      "Assessing your current visibility, online presence, and how easily people can find and trust you.",
   },
   {
     id: "03",
-    title: "Conversion Optimization",
+    title: "Strategy & Build",
     description:
-      "Refining user journeys to ensure families find the answers they need and take action with confidence.",
+      "Designing tailored solutions that support enquiries, referrals, and long-term growth.",
   },
   {
     id: "04",
-    title: "Visibility Review",
+    title: "Optimisation",
     description:
-      "Implementing local SEO and content strategies that amplify your authority in the care community.",
+    "Improving user experience, trust signals, and visibility across platforms.",
   },
   {
     id: "05",
-    title: "Online Transformation",
+    title: "Growth & Support",
     description:
-      "Deployment of a modern, empathetic digital presence that serves as a 24/7 ambassador for your care services.",
+    "Continuous improvements to help you maintain occupancy and strengthen your reputation.",
   },
 ];
 
@@ -111,22 +120,22 @@ const stepItem = {
 /* section 5 data */
 const features = [
   {
-    icon: Award,
-    title: "Higher Rankings",
+    icon: TrendingUp,
+    title: "Increased Occupancy",
     description:
-      "We don't just place you on the first page; we ensure you dominate the searches that matter most to local families.",
+      "Helping you attract consistent, high-quality enquiries from families and local authorities.",
   },
   {
-    icon: TrendingUp,
-    title: "Higher Conversion",
+    icon: Share2,
+    title: "Stronger Referral Flow",
     description:
-      "Moving beyond traffic we focus on high-quality inquiries that lead to sustainable occupancy levels.",
+      "Positioning your service to be the preferred choice within your local care network.",
   },
   {
     icon: BadgeCheck,
-    title: "Enhanced Credibility",
+    title: "Trusted Online Presence",
     description:
-      "Your website becomes a testament to your care standards, building trust long before a site visit occurs.",
+      "A digital presence that reflects your standards of care and builds confidence before first contact.",
   },
 ];
 
@@ -147,8 +156,51 @@ const impactFadeUp = {
   },
 };
 
+/* section 3 services data */
+const services = [
+  {
+    id: 1,
+    title: "Website Design, Development & Monthly Management",
+    description: "We create modern, easy-to-navigate websites that support enquiry generation and referrals. Whether it is a new build or a full revamp, everything is structured so families and decision-makers can quickly understand your service and contact you. We also offer ongoing management which ensures your site stays compliant, updated, and effective.",
+    icon: Globe,
+    bgColor: "#F3F3F3",
+    textColor: "#1A0A07",
+    accentColor: "#FF6347",
+    span: 2,
+  },
+  {
+    id: 3,
+    title: "Digital Marketing for Care Providers",
+    description: "We focus on strategies that directly impact visibility, referrals, and occupancy.",
+    icon: Zap,
+    bgColor: "#A13A28",
+    textColor: "white",
+    accentColor: "white",
+    span: 1,
+    subServices: [
+      { title: "Local SEO for Care Searches", icon: MapPin },
+      { title: "Google Business Profile Optimisation", icon: Globe },
+      { title: "Referral-Focused Content", icon: MessageSquare },
+      { title: "Social Media Presence", icon: Users },
+      { title: "Lead & Enquiry Generation", icon: Send },
+      { title: "Reputation Management", icon: Star },
+      { title: "Conversion Optimisation", icon: TrendingUp },
+    ],
+  },
+  {
+    id: 2,
+    title: "Graphic & Multimedia Design",
+    description: "We help you present your care values clearly and professionally. From branded materials and social media content to simple animated explainer videos, we make it easier for families and stakeholders to understand your service and connect with what you offer.",
+    icon: Palette,
+    bgColor: "#EAD6C7",
+    textColor: "#1A0A07",
+    accentColor: "#ff6a4d",
+    span: 3,
+  },
+];
 
 export default function HomeSection1() {
+  const [expandedServiceId, setExpandedServiceId] = useState<number | null>(null);
   return (
     <main className="w-full bg-[#fdf8f6]">
 
@@ -167,20 +219,27 @@ export default function HomeSection1() {
                 variants={container}
                 className="max-w-[580px] text-balance font-extrabold tracking-[-0.06em] text-[#1f1110] text-[clamp(2.65rem,6vw,5.55rem)] leading-[0.95] sm:text-[clamp(3.25rem,5.6vw,5.9rem)]"
               >
-                <motion.span variants={fadeUp} className="block">Specialist</motion.span>
+                <motion.span variants={fadeUp} className="block">Digital growth</motion.span>
                 <motion.span variants={fadeUp} className="block">
-                  digital <span className="text-[#ff6a4d]">growth</span>
+                    solution <span className="text-[#ff6a4d]">for</span>
                 </motion.span>
-                <motion.span variants={fadeUp} className="block">partner for</motion.span>
-                <motion.span variants={fadeUp} className="block">supported</motion.span>
-                <motion.span variants={fadeUp} className="block">living providers</motion.span>
+                <motion.span variants={fadeUp} className="block">care across</motion.span>
+                {/* <motion.span variants={fadeUp} className="block"> </motion.span> */}
+                <motion.span variants={fadeUp} className="block">the UK</motion.span>
               </motion.h1>
 
               <motion.p
                 variants={fadeUp}
                 className="mt-6 max-w-[560px] text-[15px] leading-[1.45] text-[#6f5f5b] sm:text-[16px]"
               >
-                We help supported living and care providers in the UK deliver growth through strategic website design and digital marketing expertise.
+                We help care providers increase occupancy, attract the right referrals, and build trust with families through strategic websites, digital marketing, and engaging content.
+              </motion.p>
+
+               <motion.p
+                variants={fadeUp}
+                className="mt-6 max-w-[560px] text-[15px] leading-[1.45] text-[#6f5f5b] sm:text-[16px]"
+              >
+               Supporting domiciliary care, supported living, residential care and more.
               </motion.p>
 
               <motion.div
@@ -243,7 +302,7 @@ export default function HomeSection1() {
                   94%
                 </motion.div>
                 <p className="mt-1 text-[9.5px] leading-[1.25] text-[#7c6c68] sm:text-[10px]">
-                  Increase in digital visibility for our care partners in 2023.
+                  Increase in digital visibility for our care partners.
                 </p>
               </motion.div>
             </motion.div>
@@ -274,15 +333,22 @@ export default function HomeSection1() {
                 variants={fadeUp}
                 className="mt-4 text-[clamp(2rem,4vw,2.9rem)] leading-[1.15] font-bold text-[#1A0A07] tracking-[-0.02em]"
               >
-                Digital Marketers Passionate About Supporting the UK's Care Providers.
+                Helping Care Providers Build Trust Before First Contact
               </motion.h2>
 
               <motion.p
                 variants={fadeUp}
                 className="mt-5 text-[14.5px] leading-[1.6] text-[#4F4F4F] max-w-[500px]"
               >
-                The care sector is built on trust, but in a digital-first world, that trust must be established before the first phone call. We specialize in bridge-building between providers and those in need.
+                In the care sector, trust is everything. Families, local authorities, and commissioners are making critical decisions which often start online.
               </motion.p>
+              <motion.p
+                variants={fadeUp}
+                className="mt-5 text-[14.5px] leading-[1.6] text-[#4F4F4F] max-w-[500px]"
+              >
+                At BTech & Co, we position your service to stand out with clarity, credibility, and confidence. We ensure your digital presence reflects your care standards, supports safeguarding expectations, and makes it easy for people to choose you.
+              </motion.p>
+             
             </div>
 
             {/* RIGHT CARDS */}
@@ -381,61 +447,121 @@ export default function HomeSection1() {
                 variants={fadeUp}
                 className="mt-4 text-[clamp(2.2rem,4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.02em] text-[#1A0A07]"
               >
-                Digital Solutions for Care Providers.
+                Digital Solutions Designed for Care Providers
               </motion.h2>
             </div>
 
             {/* BENTO GRID */}
-            <div className="mt-14 grid grid-cols-1 gap-6 auto-rows-[180px] md:grid-cols-2 lg:grid-cols-3">
-              <motion.div
-                variants={card}
-                whileHover={{ y: -6 }}
-                className="flex flex-col justify-center rounded-[22px] bg-[#F3F3F3] p-8 lg:col-span-2"
-              >
-                <h3 className="text-[22px] font-semibold text-[#1A0A07]">Referral-Focused User Journeys</h3>
-                <p className="mt-3 max-w-[480px] text-[14px] leading-[1.6] text-[#4F4F4F]">
-                  We map every click to a human need, ensuring smooth transitions from curiosity to conversion for families and care managers.
-                </p>
-              </motion.div>
+            <div className="mt-14 grid grid-cols-1 gap-6 auto-rows-[200px] md:grid-cols-2 lg:grid-cols-3">
+              {services.map((service) => {
+                const Icon = service.icon;
+                const isThirdService = service.id === 3;
+                const isExpanded = expandedServiceId === service.id;
 
-              <motion.div
-                variants={card}
-                whileHover={{ y: -6 }}
-                className="flex flex-col justify-between rounded-[22px] bg-[#1A0A07] p-8 text-white"
-              >
-                <div className="text-xl text-[#FF6347]"><ShieldCheck size={20} /></div>
-                <div>
-                  <h3 className="text-[18px] font-semibold leading-[1.2]">Trust and Compliance</h3>
-                  <p className="mt-3 text-[13px] leading-[1.5] text-[#E0E0E0]">
-                    Building digital systems that meet strict UK healthcare standards while maintaining an empathetic touch.
-                  </p>
-                </div>
-              </motion.div>
+                return (
+                  <motion.div
+                    key={service.id}
+                    variants={card}
+                    whileHover={isThirdService ? { scale: 1.02 } : { y: -6 }}
+                    className={`relative flex flex-col justify-between rounded-[22px] p-8 transition-all duration-300 cursor-pointer ${
+                      service.span === 2 ? "md:col-span-2 lg:col-span-2" : service.span === 3 ? "md:col-span-2 lg:col-span-3" : "md:col-span-1 lg:col-span-1"
+                    }`}
+                    style={{
+                      backgroundColor: service.bgColor,
+                      color: service.textColor,
+                    }}
+                    onMouseEnter={() => isThirdService && setExpandedServiceId(service.id)}
+                    onMouseLeave={() => isThirdService && setExpandedServiceId(null)}
+                  >
+                    {isThirdService && (
+                      <motion.div
+                        className="absolute inset-0 pointer-events-none"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: isExpanded ? 0.15 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        style={{
+                          backgroundColor: "rgba(255,255,255,0.3)",
+                        }}
+                      />
+                    )}
 
-              <motion.div
-                variants={card}
-                whileHover={{ y: -6 }}
-                className="flex flex-col justify-between rounded-[22px] bg-[#A13A28] p-8 text-white"
-              >
-                <div className="text-xl text-white"><MapPinHouse size={20} /></div>
-                <div>
-                  <h3 className="text-[18px] font-semibold">Local SEO Mastery</h3>
-                  <p className="mt-3 text-[13px] leading-[1.5] text-[#F5EAEA]">
-                    Hyper-targeted strategies that put your care facility on the map literally and figuratively.
-                  </p>
-                </div>
-              </motion.div>
+                    {/* Normal State */}
+                    <motion.div
+                      className={`relative z-10 transition-all duration-300 ${isExpanded ? 'opacity-0' : 'opacity-100'}`}
+                      initial={false}
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div
+                          className="text-2xl"
+                          style={{ color: service.accentColor }}
+                        >
+                          <Icon size={24} />
+                        </div>
+                        {isThirdService && (
+                          <motion.div
+                            animate={{ opacity: 0.5 }}
+                            className="text-xs font-semibold"
+                            style={{ color: service.accentColor }}
+                          >
+                            
+                          </motion.div>
+                        )}
+                      </div>
+                      <h3 className="text-[18px] sm:text-[20px] font-semibold leading-[1.2]">
+                        {service.title}
+                      </h3>
+                      <p className="mt-3 text-[12px] sm:text-[13px] leading-[1.5]" style={{color: service.textColor === "white" ? "rgba(255,255,255,0.9)" : "#4F4F4F"}}>
+                        {service.description}
+                      </p>
+                    </motion.div>
 
-              <motion.div
-                variants={card}
-                whileHover={{ y: -6 }}
-                className="flex flex-col justify-center rounded-[22px] bg-[#EAD6C7] p-8 md:col-span-2"
-              >
-                <h3 className="text-[22px] font-semibold text-[#1A0A07]">Data-Driven Growth</h3>
-                <p className="mt-3 max-w-[520px] text-[14px] leading-[1.6] text-[#4F4F4F]">
-                  We don't just design; we measure. Constant iterations to improve occupancy rates and visibility.
-                </p>
-              </motion.div>
+                    {/* Expanded State - Sub Services Grid */}
+                    {isThirdService && (
+                      <motion.div
+                        className={`absolute inset-0 z-20 flex flex-col justify-center p-6 sm:p-8 ${
+                          isExpanded ? "pointer-events-auto" : "pointer-events-none"
+                        }`}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={
+                          isExpanded
+                            ? { opacity: 1, y: 0 }
+                            : { opacity: 0, y: 20 }
+                        }
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                          {service.subServices?.map((subService, index) => {
+                            const SubIcon = subService.icon;
+                            return (
+                              <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 8 }}
+                                animate={
+                                  isExpanded
+                                    ? { opacity: 1, y: 0 }
+                                    : { opacity: 0, y: 8 }
+                                }
+                                transition={{
+                                  duration: 0.2,
+                                  delay: index * 0.03,
+                                }}
+                                className="flex items-start gap-2 text-left"
+                              >
+                                <div className="flex-shrink-0 mt-0.5">
+                                  <SubIcon size={14} style={{ color: service.accentColor }} />
+                                </div>
+                                <span className="text-[10px] sm:text-[11px] leading-[1.3] font-medium">
+                                  {subService.title}
+                                </span>
+                              </motion.div>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
@@ -460,7 +586,7 @@ export default function HomeSection1() {
                   variants={stepItem}
                   className="max-w-[6.6ch] text-[clamp(2.4rem,6vw,5rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-white"
                 >
-                  Our Strategic Transformation.
+                  Our Approach.
                 </motion.h2>
               </div>
 
@@ -601,19 +727,19 @@ export default function HomeSection1() {
                 </span>
               </motion.div>
 
-              <div className="relative z-10 mx-auto flex max-w-[800px] flex-col items-center text-center gap-3">
+              <div className="relative z-10 mx-auto flex max-w-[1000px] flex-col items-center text-center gap-3">
                 <motion.h3
                   variants={impactFadeUp}
                   className="max-w-[34ch] text-[clamp(2.2rem,5.6vw,3.8rem)] font-bold leading-[1.0] tracking-[-0.03em] text-white"
                 >
-                  Ready to Professionalize Your Digital Care Presence?
+                  Ready to grow your occupancy and strengthen your digital presence?
                 </motion.h3>
 
                 <motion.p
                   variants={impactFadeUp}
                   className="max-w-[80ch] text-[0.95rem] leading-[1.5] text-white/80 sm:text-[1rem]"
                 >
-                  Book a strategy session with our care-focused digital experts today.
+                  Book a strategy session and let’s position your care service for consistent enquiries and long-term growth.
                 </motion.p>
 
                 <motion.a
