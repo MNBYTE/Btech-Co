@@ -38,10 +38,10 @@ export default function Footer() {
           >
             <p className="text-sm text-[#4F4F4F]">Contact</p>
             <p className="text-base font-medium hover:text-[#FF6347] transition">
-              Hi@yogaaditama.com
+              info@btechco.co.uk
             </p>
             <p className="text-base font-medium hover:text-[#FF6347] transition">
-              +62821-5949-5854
+              +44 7788963239
             </p>
           </motion.div>
 
